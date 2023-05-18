@@ -1,0 +1,75 @@
+﻿<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="WDWPennyFinder.FilterPage"
+               VerticalOptions="End">
+    <StackLayout Padding="0" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+        <Frame HasShadow="True" CornerRadius="20" HeightRequest="475">
+            <ScrollView>
+                <StackLayout>
+                    <Grid MinimumHeightRequest="40" VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Filter" Grid.Column="0"/>
+                    </Grid>
+                    <Grid x:Name="FilterButtonGrid" Margin="5,5,5,5" RowSpacing="5" ColumnSpacing="5">
+                        <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                           <Button Text="Animal Kingdom" Clicked="OnFilterButtonClicked" Margin="5" />
+                            <Button Text="Magic Kingdom" Clicked="OnFilterButtonClicked" Grid.Column="1" Margin="5" />
+                            <Button Text="Epcot" Clicked="OnFilterButtonClicked" Grid.Row="1" Margin="5" />
+                            <Button Text="Hollywood Studios" Clicked="OnFilterButtonClicked" Grid.Row="1" Grid.Column="1" Margin="5" />
+                            <Button Text="Disney Springs" Clicked="OnFilterButtonClicked" Grid.Row="2" Margin="5" />
+                            <Button Text="Resorts" Clicked="OnFilterButtonClicked" Grid.Row="2" Grid.Column="1" Margin="5" />
+                            <Button Text="Collected" Clicked="OnFilterButtonClicked" Grid.Row="3" Margin="5" />
+                            <Button Text="Uncollected" Clicked="OnFilterButtonClicked" Grid.Row="3" Grid.Column="1" Margin="5" />
+                            <Button Text="Clear Filter" Clicked="OnFilterButtonClicked" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="Gray" TextColor="White" Margin="5" />
+                    </Grid>
+
+                        <Grid Margin="5,5,5,5" ColumnSpacing="5" RowSpacing="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        </Grid>
+                    <Label Text="Sort" Grid.Row="5" Margin="0, 5,0,5"/>
+                    <Grid  x:Name="SortButtonGrid" Margin="5,5,5,5" Grid.Row="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="Name A-Z" Clicked="OnSortButtonClicked"/>
+                        <Button Text="Name Z-A" Clicked="OnSortButtonClicked" Grid.Column="1"/>
+                        <Button Text="Location A-Z" Clicked="OnSortButtonClicked" Grid.Row="1"/>
+                        <Button Text="Location Z-A" Clicked="OnSortButtonClicked" Grid.Row="1" Grid.Column="1"/>
+                        <Button Text="Collected - Uncollected" Clicked="OnSortButtonClicked" Grid.Row="2"/>
+                        <Button Text="Uncollected - Collected" Clicked="OnSortButtonClicked" Grid.Row="2" Grid.Column="1"/>
+                        <Button Text="Clear Sort" Clicked="OnSortButtonClicked" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="Gray" TextColor="White"/>
+                    </Grid>
+                    
+                <Button Clicked="OnDismissButtonClicked" Text="Close" Margin="0,10,0,0" />
+                </StackLayout>
+
+            </ScrollView>
+        </Frame>
+    </StackLayout>
+</toolkit:Popup>

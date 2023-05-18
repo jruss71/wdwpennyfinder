@@ -1,0 +1,35 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WDWPennyFinder.MapPage"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+              xmlns:viewmodels="clr-namespace:WDWPennyFinder.ViewModels"
+              x:DataType="viewmodels:ItemsViewModel"
+              xmlns:local="clr-namespace:WDWPennyFinder"
+
+             Title="{Binding Title}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HalfScreenConverter x:Key="HalfScreenConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+      <local:CustomMap x:Name="customMap" MapType="Street" />
+
+        <Slider x:Name= "slider" Margin="20,0,20,0"
+            Maximum="20"
+            Minimum="10"
+            ValueChanged="OnSliderValueChanged" />
+        <Grid VerticalOptions="End" Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="Street" Clicked="OnButtonClicked" Margin="3" />
+            <Button Grid.Column="1" Text="Satellite" Clicked="OnButtonClicked" Margin="3" />
+            <Button Grid.Column="2" Text="Hybrid" Clicked="OnButtonClicked" Margin="3"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>

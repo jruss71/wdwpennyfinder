@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WDWPennyFinder.ItemsPage"
+             xmlns:local="clr-namespace:WDWPennyFinder.ViewModels"
+             xmlns:model="clr-namespace:WDWPennyFinder.Models" x:DataType="local:ItemsViewModel"
+             >
+  
+     <ContentPage.ToolbarItems >
+        <ToolbarItem Command="{Binding AltFilterCommand}" IconImageSource ="filter.png" Priority="2" />
+         <ToolbarItem Clicked="OnStackLayoutTapped" IconImageSource ="upload.png"  Priority="1"  />
+
+    </ContentPage.ToolbarItems>
+
+ 
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <StackLayout>
+    
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+               
+             <DataTemplate>
+                   
+                <SwipeView>
+                    <SwipeView.RightItems>
+                        <SwipeItems>
+                            <SwipeItem Text="Collect"
+                                BackgroundColor="#886EB6"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemCollected}"		
+                                CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"/>
+                            <SwipeItem Text="Undo"
+                                BackgroundColor="Gray"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemRemoved}"		
+                                CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}" />                         
+                            </SwipeItems>
+                    </SwipeView.RightItems>
+                        <ContentView Padding="4" x:DataType="model:ItemDetail">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Padding="2" x:DataType="model:ItemDetail" Grid.Row="0">
+                                <Label Text="{Binding Item.Name}"  
+                            LineBreakMode="NoWrap" 
+                             
+                            FontSize="16" />
+                                <Label LineBreakMode="NoWrap"
+                            FontSize="13" >
+                                    <Label.Text>
+                                        <MultiBinding Converter="{StaticResource LocationParkConverter}">
+                                            <Binding Path="Location.name" />
+                                            <Binding Path="Machine.name" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+
+                            </StackLayout>
+
+                            <Image Grid.Column="1" Source="mouse_30x30.png" IsVisible="{Binding Item.Collected}" />
+                        </Grid>
+                        <ContentView.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </ContentView.GestureRecognizers>
+                    </ContentView>
+                </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+   
+   
+</ContentPage>

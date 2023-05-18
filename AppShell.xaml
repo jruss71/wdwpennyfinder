@@ -4,12 +4,33 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WDWPennyFinder"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+    Shell.FlyoutBehavior="Disabled"
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+>
+   <Shell.Resources>
+    <ResourceDictionary>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarTitleColor"
+                    Value="White" />
+        </Style>
+    </ResourceDictionary>
+</Shell.Resources>
+
+    <TabBar>
+           
+            <ShellContent
+                Title="Pennies List"
+                Route="ItemsPage"
+                Icon="icon_feed.png"
+                ContentTemplate="{DataTemplate local:ItemsPage}" />
+      
+            <ShellContent
+                Title="Map View"
+                Route="MapPage"
+                Icon="icon_wp_map.png"
+                ContentTemplate="{DataTemplate local:MapPage}" />
+     
+    </TabBar>
 
 </Shell>
-

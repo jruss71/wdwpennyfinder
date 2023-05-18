@@ -30,6 +30,37 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	  <CodesignKey>Apple Development: jessielove321@hotmail.com (CU9Q7D7YXX)</CodesignKey>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\upload.png" />
+	  <MauiImage Remove="Resources\Images\filter.png" />
+	  <MauiImage Remove="Resources\Images\upload.png" />
+	  <MauiImage Remove="Resources\Images\filter.png" />
+	  <MauiImage Remove="Resources\Images\upload.png" />
+	  <MauiImage Remove="Resources\Images\filter.png" />
+	  <MauiImage Remove="Resources\Images\upload.png" />
+	  <MauiImage Remove="Resources\Images\filter.png" />
+	  <MauiImage Remove="Resources\Images\upload.png" />
+	  <MauiImage Remove="Resources\Images\filter.png" />
+	  <MauiImage Remove="Resources\Images\upload.png" />
+	  <MauiImage Remove="Resources\Images\filter.png" />
+	  <MauiImage Remove="Resources\Images\mouse_30x30.png" />
+	  <MauiImage Remove="Resources\Images\pin.png" />
+	  <MauiImage Remove="Resources\Images\undo48.png" />
+	  <MauiImage Remove="Resources\Images\pin.png" />
+	  <MauiImage Remove="Resources\Images\undo48.png" />
+	  <MauiImage Remove="Resources\Images\mk_48x48.png" />
+	  <MauiImage Remove="Resources\Images\resort_48x48.png" />
+	  <MauiImage Remove="Resources\Images\hs_48x48.png" />
+	  <MauiImage Remove="Resources\Images\epcot_48x48.png" />
+	  <MauiImage Remove="Resources\Images\ak_48x48.png" />
+	</ItemGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -50,6 +81,93 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="SQLite" Version="3.13.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.81" />
+		<PackageReference Include="Microsoft.Maui.Maps" Version="7.0.81" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
+		<PackageReference Include="uikit" Version="2.25.0" />
+		<PackageReference Include="SimpleToolkit.Core" Version="2.0.6" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Images\icon_feed.png" />
+	  <None Remove="Resources\Images\icon_wp_map.png" />
+	  <None Remove="Resources\Images\icon_about.png" />
+	  <None Remove="Resources\Images\mouse_30x30.png" />
+	  <None Remove="Models\" />
+	  <None Remove="Data\" />
+	  <None Remove="ViewModels\" />
+	  <None Remove="Resources\Images\filter.png" />
+	  <None Remove="Resources\Images\upload.png" />
+	  <None Remove="item.db3" />
+	  <None Remove="Resources\Images\pin.png" />
+	  <None Remove="Resources\Images\insert-coin48.png" />
+	  <None Remove="Resources\Images\undo48.png" />
+	  <None Remove="Resources\Images\insertcoin48.png" />
+	  <None Remove="Resources\Images\ak_48x48.png" />
+	  <None Remove="Resources\Images\epcot_48x48.png" />
+	  <None Remove="Resources\Images\hs_48x48.png" />
+	  <None Remove="Resources\Images\mk_48x48.png" />
+	  <None Remove="Resources\Images\resort_48x48.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Remove="Resources\Styles\Styles.xaml" />
+	  <EmbeddedResource Remove="Resources\Styles\Colors.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Styles\Styles.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </BundleResource>
+	  <BundleResource Include="Resources\Styles\Colors.xaml">
+	    <SubType>Designer</SubType>
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </BundleResource>
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\upload.png" />
+	  <BundleResource Include="Resources\Images\filter.png" />
+	  <BundleResource Include="Resources\Images\pin.png" />
+	  <BundleResource Include="Resources\Images\insertcoin48.png" />
+	  <BundleResource Include="Resources\Images\undo48.png" />
+	  <BundleResource Include="Resources\Images\insertcoin48.png" />
+	  <BundleResource Include="Resources\Images\pin.png" />
+	  <BundleResource Include="Resources\Images\undo48.png" />
+	  <BundleResource Include="Resources\Images\insertcoin48.png" />
+	  <BundleResource Include="Resources\Images\pin.png" />
+	  <BundleResource Include="Resources\Images\undo48.png" />
+	  <BundleResource Include="Resources\Images\ak_48x48.png" />
+	  <BundleResource Include="Resources\Images\epcot_48x48.png" />
+	  <BundleResource Include="Resources\Images\hs_48x48.png" />
+	  <BundleResource Include="Resources\Images\mk_48x48.png" />
+	  <BundleResource Include="Resources\Images\resort_48x48.png" />
+	  <BundleResource Include="Resources\Images\mk_48x48.png" />
+	  <BundleResource Include="Resources\Images\resort_48x48.png" />
+	  <BundleResource Include="Resources\Images\hs_48x48.png" />
+	  <BundleResource Include="Resources\Images\epcot_48x48.png" />
+	  <BundleResource Include="Resources\Images\ak_48x48.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="item.db3" />
+	  <EmbeddedResource Include="Resources\Images\mouse_30x30.png" />
+	</ItemGroup>
 </Project>

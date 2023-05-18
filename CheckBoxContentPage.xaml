@@ -1,0 +1,37 @@
+﻿<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="WDWPennyFinder.CheckBoxContentPage"
+               VerticalOptions="End">
+    <StackLayout Padding="0" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+        <Frame HasShadow="True" CornerRadius="20" HeightRequest="350" WidthRequest="350">
+            <StackLayout>
+                <Grid MinimumHeightRequest="40" VerticalOptions="Start" Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Pennies" Grid.Column="0"/>
+                    <Label Text="Collected" Grid.Column="1"/>
+                </Grid>
+                <ListView x:Name="listView" Margin="0,40,0,0" HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}" Grid.Column="0"  VerticalOptions="Center"/>
+                                    <CheckBox Color="#886eb6" IsChecked="{Binding Collected}"  CheckedChanged="CheckedDone"  Grid.Column="1"  VerticalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>  
+                <Button Clicked="OnDismissButtonClicked" Text="Close" Margin="0,10,0,0" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</toolkit:Popup>
